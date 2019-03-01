@@ -24,9 +24,6 @@ public interface ProductPriceMapper {
 	public void delete(Long id);
 	
 	@Select("SELECT * FROM product_price WHERE id=#{id}")
-	@Results({
-		@Result(column = "product_id", property = "productId")
-	})
 	public ProductPrice findById(Long id);
 	
 }
