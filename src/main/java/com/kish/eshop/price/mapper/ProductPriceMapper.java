@@ -7,9 +7,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-
 import com.kish.eshop.price.model.ProductPrice;
-import com.netflix.governator.annotations.binding.Color;
 
 @Mapper
 public interface ProductPriceMapper {
@@ -24,6 +22,9 @@ public interface ProductPriceMapper {
 	public void delete(Long id);
 	
 	@Select("SELECT * FROM product_price WHERE id=#{id}")
+	@Results({
+		@Result(column = "product_id", property = "productId")
+	})
 	public ProductPrice findById(Long id);
 	
 }
